@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+</head>
+<body>
+    <p>View Current Tickets</p>
+    {% for ticket in tickets %}
+        {% if ticket.submitter == 'Test User' %}
+            <div>Submitter: {{ticket.submitter}}, created at: {{ticket.created_at}}</div>
+        {% else %}
+            <div style="color: red">Submitter: {{ticket.submitter}}, created at: {{ticket.created_at}}</div>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
