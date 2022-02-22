@@ -20,6 +20,7 @@
                 <hr/>
             {% endif %}
         {% endautoescape %}
+        <a href="{% url 'ticket' ticket.pk %}">View full ticket</a>
     {% endfor %}
 </body>
 </html>

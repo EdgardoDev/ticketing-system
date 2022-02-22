@@ -11,6 +11,9 @@ def randomString(stringLength=8):
 def index(request):
     return render(request, "index.html")
 
+def index2(request):
+    return render(request, "home.html")
+
 def submit(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -23,3 +26,7 @@ def submit(request):
 def tickets(request):
     all_tickets = Ticket.objects.all()
     return render(request, "tickets.html", {"tickets": all_tickets})
+
+def ticket(request, ticket_id):
+    selected_ticket = Ticket.objects.get(pk=ticket_id)
+    return render(request, "ticket.html", {"ticket": selected_ticket})
