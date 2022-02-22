@@ -9,10 +9,11 @@ def randomString(stringLength=8):
     return ''.join(random.choice(letters) for i in range(stringLength))
 
 def index(request):
-    return render(request, "index.html")
-
-def index2(request):
     return render(request, "home.html")
+
+def layout(request):
+    return render(request, "layout.html")
+
 
 def submit(request):
     if request.method == "POST":

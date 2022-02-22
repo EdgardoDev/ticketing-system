@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketing App - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style-dark.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="/">HOME</a>
+        <a href="/tickets">VIEW TICKETS</a>
+        <a href="/submit">NEW TICKET</a>
+    </nav>
+    <section class="content">
+        {% block content %}{% endblock %}
+    </section>
+</body>
+<style>
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        background-color: black;
+        color: white;
+        display: flex;
+    }
+    a {
+        padding: 10px 20px;
+        color: white;
+        font-family: arial;
+        font-weight: bold;
+        text-decoration: none;
+        transition: ease 0.2 all;
+    }
+    a:hover {
+        background: #444;
+    }
+    .content {
+        margin-top: 50px;
+    }
+</style>
+</html>

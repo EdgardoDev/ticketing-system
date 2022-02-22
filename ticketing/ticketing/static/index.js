@@ -1,1 +1,0 @@
-alert("Welcome To The Ticketing System!")

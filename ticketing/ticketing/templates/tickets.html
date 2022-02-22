@@ -1,26 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tickets</title>
-</head>
-<body>
-    <p>View Current Tickets</p>
+{% extends "layout.html" %}
+{% block title %}
+Tickets
+{% endblock %}
+
+{% block content %}
+    <div class="tickets">
     {% for ticket in tickets %}
-        {% autoescape off %}
-            {% if ticket.submitter == "Mr Robot" %}
-                <div>Submitter: {{ticket.submitter | escape}}, created at: {{ticket.created_at}}</div>
-                <div>Body: {{ticket.body | escape}}</div>
-                <hr/>
-            {% else %}
-                <div>Submitter: {{ticket.submitter}}, created at: {{ticket.created_at}}</div>
-                <div>Body: {{ticket.body}}</div>
-                <hr/>
-            {% endif %}
-        {% endautoescape %}
-        <a href="{% url 'ticket' ticket.pk %}">View full ticket</a>
+        <div class="ticket">
+            <h3>Ticket {{ticket.pk}}</h3>
+            <div class="info">
+                Submitted by: <strong>{{ticket.submitter}}</strong>
+                on <strong>{{ticket.created_at}}</strong>
+            </div>
+            <h4>Description:</h4>
+            <div class="body">{{ticket.body}}</div>
+            <a class="viewticket" href="{% url 'ticket' ticket.pk %}">View full ticket</a>
+        </div>
     {% endfor %}
-</body>
-</html>
+    </div>
+{% endblock %}

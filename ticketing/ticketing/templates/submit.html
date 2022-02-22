@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit</title>
-</head>
-<body>
+{% extends "layout-dark.html" %}
+{% block title %}
+New Ticket
+{% endblock %}
+
+{% block content %}
     <h1>Submit A Ticket!</h1>
     <form action="submit" method="post">
         {% csrf_token %}
@@ -18,5 +15,4 @@
         <br/>
         <input type="submit" value="Submit">
     </form>
-</body>
-</html>
+{% endblock %}

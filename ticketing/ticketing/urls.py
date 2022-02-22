@@ -21,10 +21,11 @@ from django.views.generic import TemplateView
 urlpatterns = [
     #path('admin/', admin.site.urls),
     #path('home', views.index, name="home"),
-    #path('', views.index2),
-    #path('submit', views.submit, name="submit"),
-    #path('tickets/', views.tickets, name="tickets"),
-    #path('ticket/<int:ticket_id>', views.ticket, name="ticket")
+    path('', views.index),
+    path("layout", views.layout),
+    path('submit', views.submit, name="submit"),
+    path('tickets/', views.tickets, name="tickets"),
+    path('ticket/<int:ticket_id>', views.ticket, name="ticket"),
     path("api/tickets", views.tickets_raw),
-    re_path("", TemplateView.as_view(template_name="index.html"))
+    re_path("spa", TemplateView.as_view(template_name="index.html"))
 ]
