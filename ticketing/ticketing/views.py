@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from ticketing.models import Ticket
 import random
@@ -11,8 +12,12 @@ def index(request):
     return render(request, "index.html")
 
 def submit(request):
-    new_ticket = Ticket(submitter=randomString(), body="I need help, I've found a new bug.")
-    new_ticket.save()
+    if request.method == "POST":
+        username = request.POST.get("username")
+        body = request.POST.get("body")
+        new_ticket = Ticket(submitter=username, body=body)
+        new_ticket.save()
+        return HttpResponse("The ticket has been successfully submitted!")
     return render(request, "submit.html")
 
 def tickets(request):

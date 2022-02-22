@@ -9,11 +9,17 @@
 <body>
     <p>View Current Tickets</p>
     {% for ticket in tickets %}
-        {% if ticket.submitter == 'Test User' %}
-            <div>Submitter: {{ticket.submitter}}, created at: {{ticket.created_at}}</div>
-        {% else %}
-            <div style="color: red">Submitter: {{ticket.submitter}}, created at: {{ticket.created_at}}</div>
-        {% endif %}
+        {% autoescape off %}
+            {% if ticket.submitter == "Mr Robot" %}
+                <div>Submitter: {{ticket.submitter | escape}}, created at: {{ticket.created_at}}</div>
+                <div>Body: {{ticket.body | escape}}</div>
+                <hr/>
+            {% else %}
+                <div>Submitter: {{ticket.submitter}}, created at: {{ticket.created_at}}</div>
+                <div>Body: {{ticket.body}}</div>
+                <hr/>
+            {% endif %}
+        {% endautoescape %}
     {% endfor %}
 </body>
 </html>
